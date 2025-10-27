@@ -1,24 +1,36 @@
 import nodemailer from 'nodemailer';
 import { QuoteRequest } from '../types';
-
-// 创建邮件传输器
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || 'smtp.gmail.com',
-  port: parseInt(process.env.SMTP_PORT || '587'),
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASSWORD,
-  },
-});
+import { getEnabledEmails } from '../data/config';
 
 /**
- * 发送询价邮件
+ * 创建邮件传输器
+ */
+function createTransporter() {
+  return nodemailer.createTransport({
+    host: process.env.SMTP_HOST || 'smtp.gmail.com',
+    port: parseInt(process.env.SMTP_PORT || '587'),
+    secure: false,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASSWORD,
+    },
+  });
+}
+
+/**
+ * 发送询价邮件到所有配置的邮箱
  */
 export async function sendQuoteEmail(
   quoteRequest: QuoteRequest
 ): Promise<void> {
-  const { customerName, email, company, phone, products, message } = quoteRequest;
+  const { customerName, email, company, phone, products, message, customImages } = quoteRequest;
+
+  // 获取所有启用的邮箱
+  const recipients = getEnabledEmails();
+
+  if (recipients.length === 0) {
+    throw new Error('No email recipients configured');
+  }
 
   // 生成产品列表 HTML
   const productsListHtml = products
@@ -26,11 +38,25 @@ export async function sendQuoteEmail(
       (p) => `
     <tr>
       <td style="padding: 10px; border: 1px solid #ddd;">${p.productName}</td>
-      <td style="padding: 10px; border: 1px solid #ddd;">${p.quantity}</td>
+      <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">${p.quantity}</td>
     </tr>
   `
     )
     .join('');
+
+  // 生成客户上传的图片 HTML
+  const customImagesHtml = customImages && customImages.length > 0
+    ? `
+      <h2>客户上传的产品图片</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        ${customImages.map((img, index) => `
+          <div style="border: 1px solid #ddd; padding: 5px;">
+            <img src="${img}" alt="Customer Image ${index + 1}" style="max-width: 200px; max-height: 200px;" />
+          </div>
+        `).join('')}
+      </div>
+    `
+    : '';
 
   const htmlContent = `
     <!DOCTYPE html>
@@ -62,8 +88,8 @@ export async function sendQuoteEmail(
           <table>
             <thead>
               <tr>
-                <th>产品名称</th>
-                <th>数量</th>
+                <th style="text-align: left;">产品名称</th>
+                <th style="text-align: center;">数量</th>
               </tr>
             </thead>
             <tbody>
@@ -71,7 +97,9 @@ export async function sendQuoteEmail(
             </tbody>
           </table>
 
-          ${message ? `<h2>客户留言</h2><p>${message}</p>` : ''}
+          ${customImagesHtml}
+
+          ${message ? `<h2>客户留言</h2><p style="white-space: pre-wrap;">${message}</p>` : ''}
         </div>
         <div class="footer">
           <p>此邮件由工艺品展示系统自动发送</p>
@@ -81,10 +109,12 @@ export async function sendQuoteEmail(
     </html>
   `;
 
+  const transporter = createTransporter();
+
   const mailOptions = {
     from: process.env.SMTP_USER,
-    to: process.env.ADMIN_EMAIL || process.env.SMTP_USER,
-    subject: `新询价申请 - ${customerName}`,
+    to: recipients.join(', '),
+    subject: `New Quote Request - ${customerName} | 新询价申请 - ${customerName}`,
     html: htmlContent,
     replyTo: email,
   };
