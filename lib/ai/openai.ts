@@ -3,12 +3,16 @@ import { AIGeneratedProduct, AITemplate } from '../types';
 import fs from 'fs';
 import path from 'path';
 
-// 初始化 OpenAI 客户端
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
 const TEMPLATE_FILE = path.join(process.cwd(), 'data', 'ai-template.json');
+
+/**
+ * 获取 OpenAI 客户端实例
+ */
+function getOpenAIClient() {
+  return new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY || '',
+  });
+}
 
 /**
  * 获取 AI 模板
@@ -104,9 +108,14 @@ export async function generateProductFromImage(
   useTemplate: boolean = true
 ): Promise<AIGeneratedProduct> {
   try {
+    if (!process.env.OPENAI_API_KEY) {
+      throw new Error('OPENAI_API_KEY is not configured');
+    }
+
     const template = useTemplate ? getAITemplate() : null;
     const prompt = buildPrompt(template);
 
+    const openai = getOpenAIClient();
     const response = await openai.chat.completions.create({
       model: 'gpt-4o',
       messages: [

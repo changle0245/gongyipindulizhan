@@ -126,7 +126,7 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
             Ready to Start Your Order?
           </h2>
           <p className="text-zinc-300 mb-8 max-w-2xl mx-auto">
-            Contact us today for a free quote. We're here to help you find the perfect metal craft products for your needs.
+            Contact us today for a free quote. We&apos;re here to help you find the perfect metal craft products for your needs.
           </p>
           <Button size="lg" asChild className="bg-white text-zinc-900 hover:bg-zinc-100">
             <Link href={`/${locale}/quote`}>

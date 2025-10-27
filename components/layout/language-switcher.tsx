@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import { locales, localeNames, type Locale } from '@/i18n';
+import { locales, localeNames, type Locale } from '@/i18n/request';
 import { Button } from '@/components/ui/button';
 import { Globe } from 'lucide-react';
 import { useState } from 'react';

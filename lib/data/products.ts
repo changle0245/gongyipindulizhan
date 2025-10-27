@@ -102,11 +102,12 @@ export function getAllCategories(): Category[] {
       return [
         {
           id: 'metal-crafts',
-          name: { en: 'Metal Crafts', zh: '金属工艺品' },
+          name: { en: 'Metal Crafts', zh: '金属工艺品', ar: 'الحرف المعدنية' },
           slug: 'metal-crafts',
           description: {
             en: 'High-quality metal craft products',
-            zh: '高品质金属工艺品'
+            zh: '高品质金属工艺品',
+            ar: 'منتجات الحرف المعدنية عالية الجودة'
           }
         }
       ];

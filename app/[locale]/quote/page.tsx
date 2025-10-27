@@ -110,7 +110,7 @@ export default function QuotePage({ params: { locale } }: { params: { locale: st
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
             <h2 className="text-2xl font-bold mb-2">{t('quote.success')}</h2>
             <p className="text-zinc-600">
-              We'll get back to you soon!
+              We&apos;ll get back to you soon!
             </p>
           </CardContent>
         </Card>

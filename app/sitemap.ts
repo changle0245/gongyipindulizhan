@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { getAllProducts } from '@/lib/data/products';
 import { getCategories } from '@/lib/data/categories';
-import { locales } from '@/i18n';
+import { locales } from '@/i18n/request';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';

@@ -26,10 +26,12 @@ export function importProductsFromExcel(filePath: string): Product[] {
       name: {
         en: row.Name_EN || '',
         zh: row.Name_ZH || '',
+        ar: row.Name_AR || row.Name_EN || '',
       },
       description: {
         en: row.Desc_EN || '',
         zh: row.Desc_ZH || '',
+        ar: row.Desc_AR || row.Desc_EN || '',
       },
       category: row.Category || 'metal-crafts',
       images,
@@ -37,14 +39,17 @@ export function importProductsFromExcel(filePath: string): Product[] {
         dimensions: {
           en: row.Dimensions_EN || '',
           zh: row.Dimensions_ZH || '',
+          ar: row.Dimensions_AR || row.Dimensions_EN || '',
         },
         material: {
           en: row.Material_EN || '',
           zh: row.Material_ZH || '',
+          ar: row.Material_AR || row.Material_EN || '',
         },
         craftsmanship: {
           en: row.Craftsmanship_EN || '',
           zh: row.Craftsmanship_ZH || '',
+          ar: row.Craftsmanship_AR || row.Craftsmanship_EN || '',
         },
         price: row.Price?.toString() || '',
         moq: row.MOQ?.toString() || '',
