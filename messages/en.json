@@ -1,0 +1,77 @@
+{
+  "common": {
+    "home": "Home",
+    "products": "Products",
+    "categories": "Categories",
+    "search": "Search",
+    "contact": "Contact",
+    "aboutUs": "About Us",
+    "language": "Language",
+    "addToQuote": "Add to Quote",
+    "viewDetails": "View Details",
+    "loadMore": "Load More"
+  },
+  "home": {
+    "title": "Metal Craft Products",
+    "subtitle": "Professional Metal Craftsmanship Manufacturer",
+    "description": "We specialize in high-quality metal craft products with over 500+ unique designs",
+    "featuredProducts": "Featured Products",
+    "allCategories": "All Categories",
+    "browseByCategory": "Browse by Category"
+  },
+  "product": {
+    "specifications": "Specifications",
+    "dimensions": "Dimensions",
+    "material": "Material",
+    "craftsmanship": "Craftsmanship",
+    "price": "Price",
+    "moq": "MOQ (Minimum Order Quantity)",
+    "description": "Description",
+    "relatedProducts": "Related Products",
+    "addToQuoteList": "Add to Quote List",
+    "contactUs": "Contact Us for Quote"
+  },
+  "quote": {
+    "title": "Request a Quote",
+    "yourQuoteList": "Your Quote List",
+    "emptyQuoteList": "Your quote list is empty",
+    "addProducts": "Add products to request a quote",
+    "customerInfo": "Customer Information",
+    "name": "Full Name",
+    "email": "Email",
+    "company": "Company Name",
+    "phone": "Phone Number",
+    "message": "Additional Message",
+    "submit": "Submit Quote Request",
+    "success": "Quote request sent successfully!",
+    "error": "Failed to send quote request. Please try again.",
+    "productName": "Product",
+    "quantity": "Quantity",
+    "remove": "Remove"
+  },
+  "search": {
+    "placeholder": "Search products...",
+    "results": "Search Results",
+    "noResults": "No products found",
+    "filter": "Filter",
+    "sortBy": "Sort By",
+    "priceAsc": "Price: Low to High",
+    "priceDesc": "Price: High to Low",
+    "newest": "Newest First"
+  },
+  "admin": {
+    "title": "Product Management",
+    "uploadImage": "Upload Product Image",
+    "dragDrop": "Drag and drop image here, or click to select",
+    "generating": "Generating product information with AI...",
+    "review": "Review and Edit",
+    "save": "Save Product",
+    "cancel": "Cancel"
+  },
+  "footer": {
+    "copyright": "© 2024 Metal Craft Products. All rights reserved.",
+    "contact": "Contact Information",
+    "quickLinks": "Quick Links",
+    "followUs": "Follow Us"
+  }
+}

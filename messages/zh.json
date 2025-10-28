@@ -1,0 +1,77 @@
+{
+  "common": {
+    "home": "首页",
+    "products": "产品",
+    "categories": "分类",
+    "search": "搜索",
+    "contact": "联系我们",
+    "aboutUs": "关于我们",
+    "language": "语言",
+    "addToQuote": "加入询价",
+    "viewDetails": "查看详情",
+    "loadMore": "加载更多"
+  },
+  "home": {
+    "title": "金属工艺品",
+    "subtitle": "专业金属工艺品制造商",
+    "description": "我们专注于高质量金属工艺品，拥有500多种独特设计",
+    "featuredProducts": "精选产品",
+    "allCategories": "所有分类",
+    "browseByCategory": "按分类浏览"
+  },
+  "product": {
+    "specifications": "产品规格",
+    "dimensions": "尺寸",
+    "material": "材质",
+    "craftsmanship": "工艺",
+    "price": "价格",
+    "moq": "最小起订量",
+    "description": "产品描述",
+    "relatedProducts": "相关产品",
+    "addToQuoteList": "加入询价清单",
+    "contactUs": "联系我们询价"
+  },
+  "quote": {
+    "title": "询价申请",
+    "yourQuoteList": "您的询价清单",
+    "emptyQuoteList": "询价清单为空",
+    "addProducts": "添加产品以申请询价",
+    "customerInfo": "客户信息",
+    "name": "姓名",
+    "email": "邮箱",
+    "company": "公司名称",
+    "phone": "电话",
+    "message": "留言",
+    "submit": "提交询价申请",
+    "success": "询价申请已成功发送！",
+    "error": "发送询价申请失败，请重试。",
+    "productName": "产品",
+    "quantity": "数量",
+    "remove": "移除"
+  },
+  "search": {
+    "placeholder": "搜索产品...",
+    "results": "搜索结果",
+    "noResults": "未找到产品",
+    "filter": "筛选",
+    "sortBy": "排序方式",
+    "priceAsc": "价格：从低到高",
+    "priceDesc": "价格：从高到低",
+    "newest": "最新优先"
+  },
+  "admin": {
+    "title": "产品管理",
+    "uploadImage": "上传产品图片",
+    "dragDrop": "拖放图片到此处，或点击选择",
+    "generating": "正在使用AI生成产品信息...",
+    "review": "审核和编辑",
+    "save": "保存产品",
+    "cancel": "取消"
+  },
+  "footer": {
+    "copyright": "© 2024 金属工艺品。保留所有权利。",
+    "contact": "联系方式",
+    "quickLinks": "快速链接",
+    "followUs": "关注我们"
+  }
+}
